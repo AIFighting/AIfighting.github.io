@@ -57,7 +57,7 @@
   0%{right: : 350px;}
   30%{right: 700px;}
   70%{right: 1050px;}
-  100%{right: 1380px;}
+  100%{right: 1390px;}
 }
 @keyframes jump{
     0%{top: 170px;}
@@ -74,13 +74,13 @@
 }
 
 #block{
-    background-image: url("boom.gif");
+    background-image: url("boom2.gif");
     width: 90px;
     height: 200px;
     position: relative;
     top: 200px;
     left: 1000px;
-    animation: block 6s infinite linear;
+
 }
 @keyframes block{
     0%{left: 1000px}
@@ -94,7 +94,6 @@
     position: relative;
     bottom: 54%;
     left: 1000px;
-    animation: block2 6s infinite linear;
     animation-delay: 2s;
 }
 @keyframes block2{
