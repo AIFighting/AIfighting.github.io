@@ -122,7 +122,7 @@ var checkDead = setInterval(function() {
             block.style.animation = "block 1.5s infinite linear";
             block2.style.animation = "block2 1.5s 0.5s infinite linear";
         };
-		if (counter > 400){
+		if (counter > 100){
 			document.getElementById("scoreSpan").innerHTML = Math.floor((counter2+counter-100)/100);
 		}
         ;
