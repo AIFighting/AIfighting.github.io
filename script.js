@@ -61,7 +61,7 @@ var checkMonster = setInterval(function() {
     alert("Game Over. score: " + Math.floor((counter2 + counter) / 100));
     counter = 0;
     counter2 = 0;
-     Nose = 0;
+     sessionStorage.setItem("Nose", 0);
   }
 }, 10);
 var checkDead = setInterval(function() {
@@ -78,7 +78,7 @@ var checkDead = setInterval(function() {
     alert("Game Over. score: " + Math.floor((counter + counter2-250) / 100));
     counter = 0;
     counter2 = 0;
-    Nose = 0;
+    sessionStorage.setItem("Nose", 0);
   } else if (blockupperLeft < 8 && blockupperLeft > -20 && characterTop <= 170) {
     audioback.pause();
     audioback.currentTime = 0;
@@ -88,7 +88,7 @@ var checkDead = setInterval(function() {
     alert("Game Over. score: " + Math.floor((counter2 + counter-250) / 100));
     counter = 0;
     counter2 = 0;
-    Nose = 0;
+    sessionStorage.setItem("Nose", 0);
   } else{
 		Nose = sessionStorage.getItem('Nose');
         if (Nose > 0){
