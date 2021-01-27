@@ -31,9 +31,11 @@ function onResults(results) {
   center_update = center_update + kekw
   if (kekw != 0 && cdtime <= 0 && comm == 0) {
     if ((kekw - centery) < -0.03) {
+      console.log("Spring");
       cdtime = 30;
       jump()
     } else if (results.poseLandmarks[19]['y'] < results.poseLandmarks[11]['y']) {
+      console.log("Buk");
       cdtime = 30;
       comm = -1;
       jumpdown()
@@ -53,6 +55,7 @@ function onResults(results) {
   if ((cdtime2 <= 0) && (results.poseLandmarks[19]['y'] || results.poseLandmarks[20]['y'])) {
     if ((results.poseLandmarks[20]['y'] < results.poseLandmarks[12]['y'])) {
       cdtime2 = 10;
+      console.log("Shoot");
       audioshoot.play();
       shoot();
     };

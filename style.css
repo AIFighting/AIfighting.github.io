@@ -42,22 +42,22 @@
     animation: jumpdown 1s linear;
 }
 .animateshoot{
-    animation: shoot 1s linear;
+    animation: shoot 0.5s linear;
 }
 .animatevillain{
     animation: villainmove 4s linear;
 }
 @keyframes shoot{
     0%{left: 420px;}
-    30%{left: 700px;}
-    70%{left: 1000px;}
-    100%{left: 1300px;}
+    30%{left: 600px;}
+    70%{left: 780px;}
+    100%{left: 1000px;}
 }
 @keyframes villainmove{
   0%{right: : 350px;}
   30%{right: 700px;}
   70%{right: 1050px;}
-  100%{right: 1390px;}
+  100%{right: 1380px;}
 }
 @keyframes jump{
     0%{top: 170px;}
@@ -74,13 +74,12 @@
 }
 
 #block{
-    background-image: url("boom2.gif");
+    background-image: url("boom.gif");
     width: 90px;
     height: 200px;
     position: relative;
     top: 200px;
     left: 1000px;
-
 }
 @keyframes block{
     0%{left: 1000px}

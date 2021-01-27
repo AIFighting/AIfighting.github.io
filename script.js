@@ -8,6 +8,7 @@ var counter2 = 0;
 var countervil = 0;
 var goalspawn = 700;
 var audioback = new Audio('backgroundmusic.mp3');
+var oof = new Audio('oof.wav');
 var gover = new Audio('gameover.wav');
 var Nose = 0;
 sessionStorage.setItem("Nose", 0);
@@ -50,8 +51,11 @@ var checkMonster = setInterval(function() {
   let kannuright = parseInt(window.getComputedStyle(weapon).getPropertyValue("right"));
   let characterright = parseInt(window.getComputedStyle(character).getPropertyValue("right"));
   if ((villainright != 600) && ((kannuright - villainright) < 0) && (kannuright - villainright) > -80) {
+    audioback.pause();
     weapon.classList.remove("animateshoot");
     villain.classList.remove("animatevillain");
+    oof.play();
+    audioback.play();
     counter2 = counter2 + 100;
   } else if ((villainright != 600) && ((characterright - villainright) < 30)) {
     audioback.pause();
@@ -59,11 +63,11 @@ var checkMonster = setInterval(function() {
     gover.play();
     block.style.animation = "none";
     block2.style.animation = "none";
-    alert("Game Over. score: " + Math.floor((counter2 + counter) / 100));
+    alert("Game Over. score: " + Math.floor((counter2 + counter-140) / 100));
     counter = 0;
     counter2 = 0;
-	sessionStorage.setItem("Nose", 0);
-	Nose = 0;
+    sessionStorage.setItem("Nose", 0);
+    Nose = 0;
   }
 }, 10);
 var checkDead = setInterval(function() {
@@ -77,18 +81,27 @@ var checkDead = setInterval(function() {
     gover.play();
     block.style.animation = "none";
     block2.style.animation = "none";
-    alert("Game Over. score: " + Math.floor((counter + counter2-100) / 100));
+    alert("Game Over. score: " + Math.floor((counter + counter2-140) / 100));
     counter = 0;
     counter2 = 0;
-	sessionStorage.setItem("Nose", 0);
-	Nose = 0;
   } else if (blockupperLeft < 8 && blockupperLeft > -20 && characterTop <= 170) {
     audioback.pause();
     audioback.currentTime = 0;
     gover.play();
     block.style.animation = "none";
     block2.style.animation = "none";
-    alert("Game Over. score: " + Math.floor((counter2 + counter-100) / 100));
+    alert("Game Over. score: " + Math.floor((counter2 + counter-140) / 100));
+    counter = 0;
+    counter2 = 0;
+    sessionStorage.setItem("Nose", 0);
+    Nose = 0;
+  } else if (blockupperLeft < 8 && blockupperLeft > -20 && characterTop <= 170) {
+    audioback.pause();
+    audioback.currentTime = 0;
+    gover.play();
+    block.style.animation = "none";
+    block2.style.animation = "none";
+    alert("Game Over. score: " + Math.floor((counter2 + counter-140) / 100));
     counter = 0;
     counter2 = 0;
 	sessionStorage.setItem("Nose", 0);
@@ -98,7 +111,7 @@ var checkDead = setInterval(function() {
 		if (Nose > 0){
         counter++;
         //Values for boundaries can be adjusted to smoothen the gameplay
-		if (counter < 100){
+		if (counter < 140){
 			document.getElementById("scoreSpan").innerHTML = 0;
 
 		}
@@ -122,8 +135,8 @@ var checkDead = setInterval(function() {
             block.style.animation = "block 1.5s infinite linear";
             block2.style.animation = "block2 1.5s 0.5s infinite linear";
         };
-		if (counter > 100){
-			document.getElementById("scoreSpan").innerHTML = Math.floor((counter2+counter-100)/100);
+		if (counter > 140){
+			document.getElementById("scoreSpan").innerHTML = Math.floor((counter2+counter-140)/100);
 		}
         ;
         //Function for activating villain, change values for quantity
